@@ -166,6 +166,7 @@ return [
         * Package Service Providers...
         */
         Overtrue\LaravelLang\TranslationServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -6,13 +6,11 @@
   {{-- <link rel="stylesheet" href="/css/app.css?v={{rand()}}"> --}}
   {{-- <script src="/js/app.js"></script> --}}
   <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-  <script src="{{ mix('/js/app.js') }}"></script>
 </head>
 
 <body>
 
   @include('layouts._header')
-
 
   <div class="container">
     <div class="offset-md-1 col-md-10">
@@ -21,6 +19,8 @@
       @include('layouts._footer')
     </div>
   </div>
+
+  <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>

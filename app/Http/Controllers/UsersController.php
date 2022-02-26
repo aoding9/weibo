@@ -11,16 +11,20 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        // 除了show,create,store 其他请求必须要登录才可访问
+        // 除了指定方法，其他请求处理方法必须要登录才可访问
         $this->middleware('auth', [
-            'except' => ['show', 'create', 'store']
+            'except' => ['show', 'create', 'store','index']
         ]);
 //只让未登录用户访问注册页面：
         $this->middleware('guest', [
             'only' => ['create']
         ]);
     }
-
+    public function index()
+    {
+        $users = User::paginate(6);
+        return view('users.index', compact('users'));
+    }
     public function create()
     {
         return view('users.create');

@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // 分页视图默认是tailwindcss的，需要改成bootstrap分页
+        \Illuminate\Pagination\Paginator::useBootstrap();
     }
 }

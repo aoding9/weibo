@@ -74,7 +74,7 @@ class User extends Authenticatable
 	}
 
     /**
-     * 获取某个用户的粉丝关系列表
+     * 获取粉丝列表
      */
     public function followers()
     {
@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
 
     /**
-     * 获取用户属于哪些人的粉丝
+     * 获取关注列表
      */
     public function followings()
     {

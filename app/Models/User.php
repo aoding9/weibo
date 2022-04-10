@@ -94,7 +94,7 @@ class User extends Authenticatable
         if ( ! is_array($user_ids)) {
             $user_ids = compact('user_ids');
         }
-        $this->followings()->sync($user_ids, false);
+        $this->followings()->sync($user_ids, false); // sync可以防止添加重复的关联,第二个参数表示添加关联时是否保留旧的关联
     }
 
     public function unfollow($user_ids)

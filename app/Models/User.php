@@ -65,13 +65,17 @@ class User extends Authenticatable
 
 
 	/**
-	 * 获取用户最新发布的微博动态
+	 * 获取已关注用户和自己的最新发布的微博动态
 	 */
-	public function feed()
-	{
-		return $this->statuses()
-			->orderBy('created_at', 'desc');
-	}
+    public function feed()
+    {
+      // 获取关注用户的id，然后push自己的用户id，最后whereIn一起查出来
+        $user_ids = $this->followings->pluck('id')->toArray();
+        array_push($user_ids, $this->id);
+        return Status::whereIn('user_id', $user_ids)
+                              ->with('user') // 预加载避免n+1
+                              ->orderBy('created_at', 'desc');
+    }
 
     /**
      * 获取粉丝列表
